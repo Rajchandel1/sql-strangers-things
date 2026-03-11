@@ -156,6 +156,25 @@
         .objective-text { font-size: 14px; color: #fca5a5; line-height: 1.8; }
         .objective-text code { background: rgba(229, 9, 20, 0.2); padding: 2px 8px; border-radius: 4px; font-size: 13px; color: #fff; border: 1px solid rgba(229,9,20,0.3); }
         
+        /* Navigation Buttons */
+        .nav-buttons {
+            display: flex; gap: 12px; margin-top: 24px;
+        }
+        .nav-btn {
+            flex: 1; padding: 12px 20px;
+            background: rgba(63, 63, 70, 0.2); border: 1px solid rgba(63, 63, 70, 0.4);
+            color: var(--silver); font-family: 'Bebas Neue', sans-serif;
+            font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+            cursor: pointer; transition: all 0.3s ease; border-radius: 6px;
+        }
+        .nav-btn:hover:not(:disabled) {
+            background: rgba(229, 9, 20, 0.2); border-color: var(--crimson); color: var(--crimson);
+            transform: translateY(-1px);
+        }
+        .nav-btn:disabled {
+            opacity: 0.3; cursor: not-allowed;
+        }
+        
         /* Editor Panel */
         .editor-panel { width: 58%; display: flex; flex-direction: column; background: var(--void); }
         
@@ -467,41 +486,32 @@
         // CHAPTER 1: THE VANISHING
         {
             id: 1, title: "The Vanishing", chapter: "CHAPTER I",
-            story: "November 6, 1983. Will Byers vanishes on his way home. The town of Hawkins is unaware of the horror that has awakened. Search the town records.",
-            task: "Find Will Byers in the <code>residents</code> table. Show his <code>id</code> and <code>location</code>.",
+            story: "November 6, 1983. Will Byers vanishes on his way home. The town of Hawkins is unaware of the horror that has awakened. Search town records.",
+            task: "Find <code>id</code> and <code>location</code> of <code>'Will Byers'</code> from <code>residents</code> table.",
             solutionQuery: "SELECT id, location FROM residents WHERE name = 'Will Byers';",
             expectedKeyword: "Mirkwood",
-            image: "https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?q=80&w=2070&auto=format&fit=crop",
-            points: 100
-        },
-        {
-            id: 2, title: "The Runaway", chapter: "CHAPTER I",
-            story: "A girl with a shaved head appears at Benny's Burgers. She has a tattoo '011' on her arm. She isn't in the town registry.",
-            task: "Check the <code>lab_subjects</code> table for the subject with <code>subject_id</code> 11. What is her <code>real_name</code>?",
-            solutionQuery: "SELECT real_name FROM lab_subjects WHERE subject_id = 11;",
-            expectedKeyword: "Jane",
-            image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop",
-            points: 100
+            image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=2070&auto=format&fit=crop",
+            points: 10
         },
         {
             id: 3, title: "The Mother's Search", chapter: "CHAPTER I",
-            story: "Joyce Byers is receiving signals from the lights. She believes Will is talking to her. We need to verify the family connections.",
-            task: "List all residents name living at <code>'Byers House'</code> to see who is currently accounted for.",
+            story: "Joyce Byers is receiving signals from lights. She believes Will is talking to her. We need to verify family connections.",
+            task: "Find <code>name</code> of all residents whose <code>location</code> is <code>'Byers House'</code>.",
             solutionQuery: "SELECT name FROM residents WHERE location = 'Byers House';",
             expectedKeyword: "Joyce",
-            image: "https://images.unsplash.com/photo-1509248961895-40c6b1c8b15e?q=80&w=2070&auto=format&fit=crop",
-            points: 100
+            image: "https://images.unsplash.com/photo-1516035069371-29a1b242cc5b?q=80&w=2070&auto=format&fit=crop",
+            points: 10
         },
         
         // CHAPTER 2: THE LAB
         {
             id: 4, title: "Hawkins Lab", chapter: "CHAPTER II",
             story: "Chief Hopper breaks into Hawkins Lab. He finds evidence of the experiments. The conspiracy is deeper than we thought.",
-            task: "Find the all details of a subject in <code>lab_subjects</code> who has the ability <code>'Telekinesis'</code>.",
+            task: "Show all details of the subject from <code>lab_subjects</code> whose <code>ability</code> is <code>'Telekinesis'</code>.",
             solutionQuery: "SELECT * FROM lab_subjects WHERE ability = 'Telekinesis';",
             expectedKeyword: "Eleven",
-            image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=2070&auto=format&fit=crop",
-            points: 100
+            image: "https://images.unsplash.com/photo-1612287230202-1ff59032c5f7?q=80&w=2070&auto=format&fit=crop",
+            points: 10
         },
         {
             id: 5, title: "Terry Ives", chapter: "CHAPTER II",
@@ -509,58 +519,57 @@
             task: "Find the <code>real_name</code> of the subject whose <code>origin</code> is <code>'Terry Ives'</code>.",
             solutionQuery: "SELECT real_name FROM lab_subjects WHERE origin = 'Terry Ives';",
             expectedKeyword: "Jane",
-            image: "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?q=80&w=2070&auto=format&fit=crop",
-            points: 100
+            image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?q=80&w=2070&auto=format&fit=crop",
+            points: 10
         },
         {
             id: 6, title: "The Demogorgon", chapter: "CHAPTER II",
             story: "The monster from the other dimension has crossed over. It's hunting. We need to identify the threat.",
-            task: "Check the <code>upside_down</code> table. Find the location where <code>monster_type</code> is <code>'Demogorgon'</code>.",
+            task: "Find the <code>location</code> from the <code>upside_down</code> table where <code>monster_type</code> is <code>'Demogorgon'</code>.",
             solutionQuery: "SELECT location FROM upside_down WHERE monster_type = 'Demogorgon';",
             expectedKeyword: "Hawkins Lab",
-            image: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?q=80&w=2070&auto=format&fit=crop",
-            points: 100
+            points: 10
         },
         
         // CHAPTER 3: THE GATE
         {
             id: 7, title: "The Bathtube", chapter: "CHAPTER III",
             story: "Eleven uses a deprivation tank to amplify her powers. She sees Will in the Upside Down. He is alive but trapped.",
-            task: "Update Will Byers' status in the <code>residents</code> table. Set <code>status</code> to <code>'Trapped in Upside Down'</code>.",
+            task: "Update the <code>status</code> of <code>'Will Byers'</code> to <code>'Trapped in Upside Down'</code> in the <code>residents</code> table.",
             solutionQuery: "UPDATE residents SET status = 'Trapped in Upside Down' WHERE name = 'Will Byers';",
             expectedKeyword: "Trapped",
             checkType: "state_contains",
-            image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=2070&auto=format&fit=crop",
-            points: 150
+            image: "https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=2070&auto=format&fit=crop",
+            points: 10
         },
         {
             id: 8, title: "The Wall", chapter: "CHAPTER III",
             story: "Joyce finds a tear in the reality in her living room wall. The barrier between worlds is weakening.",
-            task: "Insert a new record into <code>upside_down</code>. Location: <code>'Byers House'</code>, Status: <code>'Open'</code>, Monster: <code>'None'</code>. (portal_id: 2)",
+            task: "Insert a new record in the <code>upside_down</code> table with <code>portal_id = 2</code>, <code>location = 'Byers House'</code>, <code>status = 'Open'</code>, and <code>monster_type = 'None'</code>.",
             solutionQuery: "INSERT INTO upside_down VALUES (2, 'Byers House', 'Open', 'None');",
             expectedKeyword: "Byers House",
             checkType: "state_contains",
             image: "https://images.unsplash.com/photo-1509248961895-40c6b1c8b15e?q=80&w=2070&auto=format&fit=crop",
-            points: 150
+            points: 10
         },
         {
             id: 9, title: "The Rescue", chapter: "CHAPTER III",
             story: "Hopper and Joyce enter the Upside Down to save Will. They must navigate the toxic landscape.",
-            task: "Select the <code>location</code> from <code>upside_down</code> where the <code>status</code> is <code>'Open'</code>.",
+            task: "Find the <code>location</code> from the <code>upside_down</code> table where <code>status</code> is <code>'Open'</code>.",
             solutionQuery: "SELECT location FROM upside_down WHERE status = 'Open';",
             expectedKeyword: "Hawkins Lab",
             image: "https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?q=80&w=2070&auto=format&fit=crop",
-            points: 100
+            points: 10
         },
         {
             id: 10, title: "The Sacrifice", chapter: "CHAPTER III",
             story: "To save her friends, Eleven faces the Demogorgon. She uses her full power to disintegrate it... and vanishes.",
-            task: "Update the <code>residents</code> table. Set Eleven's status to <code>'Missing'</code> where name is <code>'Eleven'</code>.",
+            task: "Update the <code>status</code> of <code>'Eleven'</code> to <code>'Missing'</code> in the <code>residents</code> table.",
             solutionQuery: "UPDATE residents SET status = 'Missing' WHERE name = 'Eleven';",
             expectedKeyword: "Missing",
             checkType: "state_contains",
             image: "https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?q=80&w=2070&auto=format&fit=crop",
-            points: 150
+            points: 10
         },
 
         // CHAPTER 4: THE MIND FLAYER
@@ -572,7 +581,7 @@
             expectedKeyword: "Possessed",
             checkType: "state_contains",
             image: "https://images.unsplash.com/photo-1507400492013-162706c8c05e?q=80&w=2070&auto=format&fit=crop",
-            points: 150
+            points: 50
         },
         {
             id: 12, title: "The Shadow", chapter: "CHAPTER IV",
@@ -580,8 +589,8 @@
             task: "Find all locations in <code>upside_down</code> that have a <code>monster_type</code> of <code>'Mind Flayer'</code>.",
             solutionQuery: "SELECT location FROM upside_down WHERE monster_type = 'Mind Flayer';",
             expectedKeyword: "Hawkins Lab",
-            image: "https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=2070&auto=format&fit=crop",
-            points: 100
+            image: "https://images.unsplash.com/photo-1507400492013-162706c8c05e?q=80&w=2070&auto=format&fit=crop",
+            points: 50
         },
         {
             id: 13, title: "Closing The Gate", chapter: "CHAPTER IV",
@@ -591,7 +600,7 @@
             expectedKeyword: "Closed",
             checkType: "state_contains",
             image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2070&auto=format&fit=crop",
-            points: 200
+            points: 50
         },
 
         // CHAPTER 5: VECNA
@@ -603,7 +612,7 @@
             expectedKeyword: "curse_status",
             checkType: "state_contains",
             image: "https://images.unsplash.com/photo-1509248961895-40c6b1c8b15e?q=80&w=2070&auto=format&fit=crop",
-            points: 200
+            points: 50
         },
         {
             id: 15, title: "Max Mayfield", chapter: "CHAPTER V",
@@ -613,7 +622,7 @@
             expectedKeyword: "Targeted",
             checkType: "state_contains",
             image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2070&auto=format&fit=crop",
-            points: 150
+            points: 50
         },
         {
             id: 16, title: "The Final Stand", chapter: "CHAPTER V",
@@ -623,7 +632,7 @@
             expectedKeyword: "Destroyed",
             checkType: "state_contains",
             image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2070&auto=format&fit=crop",
-            points: 250
+            points: 50
         },
         
         // CHAPTER 6: REUNION & HAPPY ENDING
@@ -634,7 +643,7 @@
             solutionQuery: "SELECT name, status FROM residents;",
             expectedKeyword: "Safe", // Assuming most are safe
             image: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=2070&auto=format&fit=crop",
-            points: 100
+            points: 50
         },
         {
             id: 18, title: "Reconstruction", chapter: "CHAPTER VI",
@@ -644,7 +653,7 @@
             expectedKeyword: "Healing",
             checkType: "state_contains",
             image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2076&auto=format&fit=crop",
-            points: 150
+            points: 50
         },
         // LEVEL 19: Pattern Matching
         {
@@ -654,7 +663,7 @@
             solutionQuery: "SELECT real_name, origin FROM lab_subjects WHERE origin LIKE 'Ter%';",
             expectedKeyword: "Jane",
             image: "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?q=80&w=2070&auto=format&fit=crop",
-            points: 150
+            points: 100
         },
         // LEVEL 20: JOINS & Graduation
         {
@@ -664,7 +673,7 @@
             solutionQuery: "SELECT residents.name, graduation.degree FROM residents JOIN graduation ON residents.id = graduation.student_id;",
             expectedKeyword: "Dustin",
             image: "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=2070&auto=format&fit=crop",
-            points: 300
+            points: 100
         }
     ];
        
@@ -862,8 +871,19 @@
             <p class="story-text">${l.story}</p>
             <div class="objective-card">
                 <p class="objective-text">${l.task}</p>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn" id="prevBtn" onclick="navigateToLevel(${i - 1})" ${i === 0 ? 'disabled' : ''}>← Previous</button>
+                <button class="nav-btn" id="nextBtn" onclick="navigateToLevel(${i + 1})" ${i >= levels.length - 1 ? 'disabled' : ''}>Next →</button>
             </div>`;
         outputContent.innerHTML = '<div class="msg-box msg-info">Awaiting command...</div>';
+    }
+    
+    function navigateToLevel(levelIndex) {
+        if (levelIndex < 0 || levelIndex >= levels.length) return;
+        currentLevel = levelIndex;
+        saveProgress();
+        loadLevel(currentLevel);
     }
     
     function showVictory() {
